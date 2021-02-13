@@ -11,13 +11,18 @@ const multer = require('multer')
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         console.log("in multer",file)
+        if(file.fieldname!=='profilePic'){
         const {name}=req.body 
-        //console.log('disease name',name)
-        console.log('field',file.fieldname)
+        // console.log('disease name',name)
+        //console.log('field',file.fieldname)
         const dname= name.toLowerCase()
         const userEmail = req.user.email.toLowerCase()
-        const dir = `./public/uploads/${userEmail}/${dname}/${file.fieldname}`
-        console.log("dir",dir)
+        var dir = `./public/uploads/${userEmail}/${dname}/${file.fieldname}`
+        }else{
+            const userEmail = req.user.email.toLowerCase()
+            var dir = `./public/uploads/${userEmail}/${file.fieldname}`
+            console.log("dir:",dir)
+        }
         if (!fs.existsSync(dir)) {
             //console.log("making files")
             fs.mkdirSync(dir, { recursive: true }, (err) => {
@@ -28,7 +33,16 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         // const userId = req.user._id
-        cb(null, `File-${v4()}${path.extname(file.originalname)}`)
+
+       // fileName= path.join(`${file.fieldname}`,`File-${v4()}-${file.originalname}-${path.extname(file.originalname)}`)
+        //console.log(fileName)
+        if(file.fieldname==='profilePic'){
+        const user=req.user
+        user.profilePic=`ProfilePic_${file.originalname}`
+        cb(null,`ProfilePic_${file.originalname}` )
+        }else{
+        cb(null,`File-${v4()}-${file.originalname}` )
+        }
     },
 })
 
@@ -62,6 +76,7 @@ router.get('/login', redirectIfLoggedIn, authController.login_get)
 router.post('/login', authController.login_post)
 router.get('/logout', requireAuth, authController.logout_get)
 router.get('/profile', requireAuth, authController.profile_get)
+router.post('/profile/editDetails',requireAuth,authController.editDetails_post)
 
 router.post(
     '/profile/upload',
@@ -84,4 +99,13 @@ router.get('/forgotPassword', redirectIfLoggedIn,authController.getForgotPasswor
 router.post('/forgotPassword', redirectIfLoggedIn,authController.forgotPassword)
 router.get('/resetPassword/:id/:token',authController.getPasswordResetForm)
 router.post('/resetPassword/:id/:token',authController.resetPassword)
+router.get('/download/:type/pdf',requireAuth,authController.download)
+router.post(
+    '/profile/picupload',
+    requireAuth,
+    upload.single(
+            'profilePic',
+      ),  
+    authController.picupload_post
+)
 module.exports = router
