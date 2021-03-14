@@ -95,6 +95,9 @@ router.get('/logout', requireAuth, authController.logout_get)
 router.get('/profile', requireAuth, authController.profile_get)
 router.post('/profile/editDetails',requireAuth,authController.editDetails_post)
 
+router.get('/profileNew', requireAuth, authController.profileNew_get)
+
+
 router.post(
     '/profile/upload',
     requireAuth,

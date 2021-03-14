@@ -409,6 +409,11 @@ module.exports.profile_get = async (req, res) => {
     // console.log('in profile page')
 }
 
+module.exports.profileNew_get = async (req, res) => {
+    res.render('./userViews/profileNew')
+}
+
+
 module.exports.logout_get = async (req, res) => {
     // res.cookie('jwt', '', { maxAge: 1 });
     // const cookie = req.cookies.jwt
