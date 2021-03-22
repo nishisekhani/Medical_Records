@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const User = require('../models/User')
+// const User = require('../models/User')
 
 
 const diseaseSchema = mongoose.Schema({
@@ -8,10 +8,20 @@ const diseaseSchema = mongoose.Schema({
         trim: true,
     },
     medicine:[{
-        type: String
+        originalName:{
+            type:String
+        },
+        filename:{
+            type:String
+        }
     }],
     document:[{
-        type: String
+        originalName:{
+            type:String
+        },
+        filename:{
+            type:String
+        }
     }],
     owner:{
         type: mongoose.Schema.Types.ObjectId ,
