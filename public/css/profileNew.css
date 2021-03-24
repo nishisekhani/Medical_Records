@@ -1,5 +1,7 @@
 
 #pSec1{
+    position:relative;
+    top:15px;
     height: 91vh;
     background: #ffffff;
 }
@@ -56,8 +58,10 @@
     filter: brightness(0) invert(1);
     margin-top: 1%;
 }
-#pSec2{    
+#pSec2{  
+    position:relative;  
     top: 15px;
+    margin-bottom:20px;
 }
 #sub1{
     display: flex;
@@ -90,7 +94,7 @@
 #Camera{
     position: absolute;
     bottom: 0;
-    left: 15%;
+    left: 120px;
 }
 .name-id{
     padding-left: 5%;
@@ -141,9 +145,11 @@
     background-color: #ffffff;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+    position:relative;
     top: 15px;
     right: 5px;
     padding: 0;
+    margin-bottom:20px;
 }
 #Dr {
     background: #019dfa;
@@ -206,13 +212,20 @@
     }
 }
 /* mobile view */
+@media (min-width:577px){
+    .mobile-view {
+        display: none;
+    }
+}
 @media (max-width: 576px) {
     #sub1{
-        height: 48vh;
+        height: 62vh;
+        box-shadow:none;
     }
     #patientDetails {
         padding: 2% 4%;
-        margin-bottom: 1%;
+        margin-bottom: 5%;
+        margin-top:1%;
     }
     .heading-and-edit-icon{
         margin-bottom: 1%;
@@ -220,30 +233,111 @@
     #name{
         font-size: 120%;
     }
+    #pSec2{
+        height:50%;
+    }
     #pSec3{
         display: block;
+       margin-top:5%;
+       margin-bottom:0px;
+       box-shadow:none;
     }
     #search-form{
         display: none;
     }
     #pSec1{
         height: unset;
+        position:relative;
+       top:0px;
     }
+    #Dr{
+        margin-top:2%;
+        margin-left:10.5%;
+        height:80%;
+        width:80%;
+        font-size:180%;
+        padding:5%;
+        box-shadow: .5rem .5rem 1rem rgba(0,0,0,.15);
+        border-radius:5px 5px 0 0;
+    }
+#Camera{
+    position: absolute;
+    bottom: 0;
+    left: 100px;
 }
-
-
+.lists {
+    margin-bottom: 5%;
+ }
+#patientDetails{
+    position:relative;
+    top:5%;
+}
+.name-id{
+    position:relative;
+    top:10px;
+}
 .desktop-view {
     display: block;
 }
 .mobile-view {
     display: none;
 }
-
+}
 @media (max-width: 576px) {
     .mobile-view {
         display: block;
     }
     .desktop-view {
         display: none;
+    }
+}
+ @media (max-width:320px){
+     #sub1{
+         margin-top:7%;
+         height:65vh;
+     }
+     #patientDetails{
+         position:relative;
+         top:5%;
+     }
+     #Dr{
+         margin-top:0.5%;
+         padding:5%;
+         font-size:140%;
+     }
+     .lists {
+        margin-bottom: 5%;
+     }
+     .name-id{
+         position:relative;
+         top:10px;
+     }
+ }
+ @media (min-width:375px) and (max-width:400px){
+     #patientDetails{
+         padding:5%;
+     }
+ }
+@media (min-width:400px) and (max-width:540px){
+    #sub1{
+        margin-bottom:0.5%;
+        height:60vh;
+    }
+#Dr{
+    position:relative;
+    bottom:5%;
+    margin-top:0.5%;
+    padding:5%;
+}
+#patientDetails{
+    margin-bottom: 10%; 
+}
+#pSec3{
+    margin-top:2%;
+}
+}
+@media (min-width:540px) and (max-width:576px){
+    #Dr{
+        padding:4%;
     }
 }
