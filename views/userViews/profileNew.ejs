@@ -20,6 +20,55 @@
 <body>
     
     <%- include('../partials/navbar'); %>
+	<div id="myModal" class="modal fadeIn">
+		<div class="modal-content">
+			<div class="row">
+				<div class="content-top ">
+					<a href="#" class="img-rounded"><img src="../img/ProfilePic.png" id="profileImg1"></a>
+					<span><button type="button" class="cancel fadeOut" data-dismiss="modal">CANCEL</button></span>
+					<h4>ADD DISEASE</h4>
+				</div>
+			</div>
+			<form class="form-modal" method="POST" enctype="multipart/form-data">
+				<!--Dont remove the enctype-->
+				<div class="group1">
+					<input type="text" name="name" aria-required="true" required><span class="highlight1"></span><span
+						class="bar1"></span>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Disease
+						Name</label>
+					<span><button class="save1" formaction="profile/upload" value="upload">SAVE</button></span>
+					<!-- Dont remove the name and value attribute-->
+				</div>
+				<div class="group2" style=" margin-bottom: -51px; margin-top: 15px;">
+					<!--<input type="text"><span class="highlight1"></span><span class="bar1"></span>-->
+					<p style="margin-top: -9px; font-size:18px; font-weight: normal; margin-left: 5px;	color:#a5a5a5;">
+						Medicine</p>
+					<div class="custom-file" style="border-radius: 4rem; margin-top: -26px;">
+						<!--<input type="file" class="custom-file-input" id="customFile">
+						<label class="custom-file-label" for="customFile">Choose file</label>-->
+						<input id="input-b3" name="medicine" type="file" class="file" multiple data-show-upload="false"
+							data-show-caption="true" data-msg-placeholder="Select {files} for upload...">
+					</div>
+				</div>
+				<span class="UD">Upload Documents</span>
+				<div class="zone">
+					<span class="UD"
+						style="z-index: 1000; overflow: hidden; display: flex; text-align: start; margin-left: 25px;">Upload
+						Documents</span>
+					<div id="dropZ">
+						<i class="fa fa-cloud-upload"></i>
+						<div>Select your file here</div>
+						<div class="selectFile">
+							<input type="file" name="document" id="file" multiple>
+							<!--Dont remove the name attribute -->
+						</div>
+						<p>File size limit : 10 MB</p>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<div class="desktop-view">
 		<div class="container-fluid profile-body">
 			<div class="row">
@@ -32,9 +81,9 @@
 						<div class="lists">
 							<a href="#" onclick="myFunction()" class="dropbtn">Disease</a>
 							<img src="../img/disease.png" class="Icons">
-							<!-- <div id="myDropdown" class="dropdown-content">
-								<a id="myBtn">Add New</a>
-							</div> -->
+							 <div id="myDropdown" class="dropdown-content">
+								<a id="myBtn" onclick=openModal()>Add New</a>
+							</div>
 						</div>
 						<div class="lists">
 							<a href="#">Appointments</a>
@@ -120,11 +169,11 @@
 						<img src="../img/profile.png" class="Icons profile-icon">
 					</div>
 					<div class="lists">
-						<a href="#" onclick="myFunction()" class="dropbtn">Disease</a>
+						<a  onclick=myFunctionMobile() class="dropbtn">Disease</a>
 						<img src="../img/disease.png" class="Icons">
-						<!-- <div id="myDropdown" class="dropdown-content">
-							<a id="myBtn">Add New</a>
-						</div> -->
+						 <div  id="myDropdownMobile" class="dropdown-content">
+							<a id="myBtn" data-toggle="modal" onclick=openModal() data-target="#myModal">Add New</a>
+						</div> 
 					</div>
 					<div class="lists">
 						<a href="#">Appointments</a>
