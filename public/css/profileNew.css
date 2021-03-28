@@ -1,4 +1,6 @@
-
+body{
+    overflow-y: scroll !important;
+}
 #pSec1{
     position:relative;
     top:15px;
@@ -57,6 +59,9 @@
 .active-list .Icons {
     filter: brightness(0) invert(1);
     margin-top: 1%;
+}
+.Icons-invert{
+    filter: brightness(0.5);
 }
 #pSec2{  
     position:relative;  
@@ -204,19 +209,25 @@
     color: black;
     text-decoration: none;
 }
+.hospital-list{
+    display: none;
+}
 
 /* tab view */
 @media (max-width: 992px) {
     #pSec3{
         display: none;
     }
+    .hospital-list{
+        display: flex;
+    }
 }
 /* mobile view */
-@media (min-width:577px){
+/* @media (min-width:577px){
     .mobile-view {
         display: none;
     }
-}
+} */
 @media (max-width: 576px) {
     #sub1{
         height: 62vh;
