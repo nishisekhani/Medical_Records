@@ -10,7 +10,7 @@ const { v4 } = require('uuid');
 const multer = require('multer')
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        console.log("in multer",file)
+        // console.log("in multer",file)
         if(file.fieldname!=='profilePic'){
         const {name}=req.body 
         // console.log('disease name',name)
@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
         }else{
             const userEmail = req.user.email.toLowerCase()
             var dir = `./public/uploads/${userEmail}/${file.fieldname}`
-            console.log("dir:",dir)
+            // console.log("dir:",dir)
         }
         if (!fs.existsSync(dir)) {
             //console.log("making files")
@@ -90,10 +90,13 @@ router.get('/verify/:id', authController.emailVerify_get)
 router.get('/signup',redirectIfLoggedIn, authController.signup_get)
 router.post('/signup', authController.signup_post)
 router.get('/login', redirectIfLoggedIn, authController.login_get)
-router.post('/login', authController.login_post)
+router.post('/login',requireAuth, authController.login_post)
 router.get('/logout', requireAuth, authController.logout_get)
 router.get('/profile', requireAuth, authController.profile_get)
 router.post('/profile/editDetails',requireAuth,authController.editDetails_post)
+
+//router.get('/profileNew'/*, requireAuth,*/, authController.profileNew_get)
+
 
 router.post(
     '/profile/upload',
