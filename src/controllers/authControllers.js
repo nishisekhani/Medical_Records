@@ -208,7 +208,7 @@ module.exports.emailVerify_get = async (req, res) => {
 module.exports.login_post = async (req, res) => {
     const { email, password } = req.body
     // console.log('in Login route')
-    // console.log('req.body',req.body)
+     console.log('req.body',req.body)
     try {
         const user = await User.login(email, password)
         //console.log("user",user)
@@ -386,32 +386,33 @@ module.exports.disease_get = async (req, res) => {
 }
 
 module.exports.profile_get = async (req, res) => {
-    //res.locals.user = req.user
-    // res.locals.user = await req.user.populate('disease').execPopulate()
-    // //console.log('user id',req.user)
-    // //console.log("locals",res.locals.user)
-    // //console.log('id',req.user._id)
-    // // const user=req.user
-    // const hospitals = await Relations.find({
-    //     userId: req.user._id,
-    //     isPermitted: true,
-    // }).populate('hospitalId', 'hospitalName')
-    // const nominee = await req.user.populate('nominee').execPopulate() // to be optimised by gaurav
-    //console.log('hospitals',nominee)
-    // const profilePath=path.join(__dirname,`../../public/uploads/${user.email}/${user.profilePic}`)
-    // console.log(profilePath)
+    res.locals.user = req.user
+    res.locals.user = await req.user.populate('disease').execPopulate()
+    console.log('user id',req.user)
+    console.log("locals",res.locals.user)
+    console.log('id',req.user._id)
+    const user=req.user
+    const hospitals = await Relations.find({
+        userId: req.user._id,
+        isPermitted: true,
+    }).populate('hospitalId', 'hospitalName')
+    const nominee = await req.user.populate('nominee').execPopulate() // to be optimised by gaurav
+    console.log('hospitals',nominee)
+    const profilePath=path.join(__dirname,`../../public/uploads/${user.email}/${user.profilePic}`)
+    console.log(profilePath)
     res.render('./userViews/profile', {
         path: '/user/profile',
-        // hospitals: hospitals,
-        // nominee,
-        // profilePath
+        hospitals,
+        nominee,
+        profilePath
     })
-    // console.log('in profile page')
+    console.log('in profile page')
 }
 
-module.exports.profileNew_get = async (req, res) => {
-    res.render('./userViews/profileNew')
-}
+
+// module.exports.profileNew_get = async (req, res) => {
+//     res.render('./userViews/profileNew')
+// }
 
 
 module.exports.logout_get = async (req, res) => {
@@ -520,16 +521,21 @@ module.exports.hospitalSearch_get = async (req, res) => {
     const userId = req.query
     const params = new URLSearchParams(userId)
     const id = params.get('id')
-    const hospitals = await Hospital.find({ _id: id })
+    const hospital = await Hospital.find({ _id: id })
     //console.log(hospitals)
     // res.send(hospital)
+    const hospitals = await Relations.find({
+        userId: req.user._id,
+        isPermitted: true,
+    }).populate('hospitalId', 'hospitalName')
     const nominee = await req.user.populate('nominee').execPopulate()
     console.log('nomineeeee', nominee)
     res.locals.user = req.user
     res.render('./userViews/Profile', {
+        hospital,
         hospitals,
         nominee,
-        path: '/user/userHospitalD',
+        path:'/user/hospitalSearch'
     })
 }
 module.exports.hospitalSearch_post = async (req, res) => {
