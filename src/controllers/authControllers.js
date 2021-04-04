@@ -207,7 +207,7 @@ module.exports.emailVerify_get = async (req, res) => {
 
 module.exports.login_post = async (req, res) => {
     const { email, password } = req.body
-    // console.log('in Login route')
+    console.log('in Login route')
      console.log('req.body',req.body)
     try {
         const user = await User.login(email, password)
