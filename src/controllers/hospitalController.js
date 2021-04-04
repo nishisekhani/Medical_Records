@@ -362,6 +362,7 @@ module.exports.relation_post=async (req,res)=>{
 module.exports.patient_search = async (req, res) => 
 {
     const {short_id} = req.body; 
+    console.log("Searched patient", req.body);
     if (!short_id || short_id.length < 8)
     {
         req.flash("error_msg", "Unique ID of user cannot be less than 8 characters")
