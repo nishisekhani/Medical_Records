@@ -282,7 +282,7 @@ module.exports.upload_post = async (req, res) => {
         const existName=userDisease.disease.find(data=>
             data.name===dname
         )
-      //  console.log('disease',existName)
+        //console.log('disease',existName)
 
         const document={
         originalName:'',

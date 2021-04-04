@@ -87,6 +87,7 @@
 	<div class="desktop-view">
 		<div class="container-fluid profile-body">
 			<div class="row">
+				<div class="col-sm-12"><%- include('../partials/message'); %></div>
 				<div class="col-lg-2 col-sm-4 col-12 order-3 order-sm-1" id="pSec1">
 
 					<div id="leftPanel">
@@ -286,6 +287,7 @@
 	<div class="mobile-view"><div class="container-fluid profile-body">
 		<%if (path === '/hospital/profile'||path==='/hospital/patient'||path==='/hospital/search') { %>
 		<div class="row">
+			<div class="col-sm-12"><%- include('../partials/message'); %></div>
 			<div class="col-lg-2 col-sm-4 col-12 order-3 order-sm-1" id="pSec1">
 				<div id="leftPanel">
 					<div class="lists active-list">
