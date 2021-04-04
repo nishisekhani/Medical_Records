@@ -23,6 +23,60 @@
 <body>
     
     <%- include('../partials/navbar'); %>
+
+    <div id="myModalEdit" class="modal fadeIn">
+		<div class="modal-content-edit">
+			<div class="row">
+				<div class="content-top-edit ">
+					<a href="#" class="img-rounded"><img src="../img/ProfilePic.png" id="profileImg1"></a>
+					<span><button type="button" class="cancel-edit fadeOut" data-dismiss="modal">CANCEL</button></span>
+					<h4>Profile details</h4>
+				</div>
+			</div>
+			<form class="form-modal-edit" method="POST" >
+				<!--Dont remove the enctype-->
+				<div class="group1">
+					<input type="text" name="nomineeName" aria-required="true" required><span class="highlight1"></span><span
+						class="bar1"></span>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Nominee
+						Name</label>
+					<span><button class="save1-edit" formaction="profile/editDetails" >SAVE</button></span>
+					<!-- Dont remove the name and value attribute-->
+				</div>
+				<div class="group1-edit">
+					<input type="text" name="nomineeEmail" aria-required="true" required><span class="highlight1"></span><span
+						class="bar1"></span>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Nominee
+						Email</label>
+					
+					<!-- Dont remove the name and value attribute-->
+				</div>
+				<div class="group1">
+					<input type="text" name="nomineePhn" aria-required="true" required><span class="highlight1"></span><span
+						class="bar1"></span>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Nominee
+						Phone Number</label>
+				   
+					<!-- Dont remove the name and value attribute-->
+				</div>
+				<div class="group1">
+					<input type="text" name="address" aria-required="true" required><span class="highlight1"></span><span
+						class="bar1"></span>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">User Address</label>
+				   
+					<!-- Dont remove the name and value attribute-->
+				</div>
+				<div class="group1">
+					<input type="text" name="bloodGroup" aria-required="true" required><span class="highlight1"></span><span
+						class="bar1"></span>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">User Blood-Group</label>
+				   
+					<!-- Dont remove the name and value attribute-->
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<div id="myModal" class="modal fadeIn">
 		<div class="modal-content">
 			<div class="row">
@@ -337,6 +391,104 @@
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+	
+    <script>
+		function modalEdit(){
+    var modal = document.getElementById("myModalEdit");
+    var btn = document.getElementById("myBtnEdit");
+    var span = document.getElementsByClassName("cancel-edit")[0];
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    var span = document.getElementsByClassName("save1-edit")[0];
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+} 
+</script>
+<script>
+    $(window, document, undefined).ready(function () {
+        $('input').blur(function () {
+            var $this = $(this);
+            if ($this.val())
+                $this.addClass('used');
+            else
+                $this.removeClass('used');
+        });
+        var $ripples = $('.ripples');
+        $ripples.on('click.Ripples', function (e) {
+            var $this = $(this);
+            var $offset = $this.parent().offset();
+            var $circle = $this.find('.ripplesCircle');
+            var x = e.pageX - $offset.left;
+            var y = e.pageY - $offset.top;
+            $circle.css({
+                top: y + 'px',
+                left: x + 'px'
+            });
+            $this.addClass('is-active');
+        });
+        $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function (e) {
+            $(this).removeClass('is-active');
+        });
+    });
+
+</script>
+<script>
+	$(document).ready( function() {
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
+</script>
 
 	<script src="../js/sideNav.js"></script>
 	<script src="../js/profilePage.js"></script>
