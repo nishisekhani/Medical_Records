@@ -87,11 +87,12 @@
 	<div class="desktop-view">
 		<div class="container-fluid profile-body">
 			<div class="row">
+				<div class="col-sm-12"><%- include('../partials/message'); %></div>
 				<div class="col-lg-2 col-sm-4 col-12 order-3 order-sm-1" id="pSec1">
 
 					<div id="leftPanel">
 						<div class="lists active-list">
-							<a href="#">Profile</a>
+							<a href="/hospital/profile">Profile</a>
 							<img src="../img/profile.png" class="Icons profile-icon">
 						</div>
 						<!-- <div class="lists">
@@ -229,15 +230,9 @@
 					</div>
 				</div>
 				<% } %>
-				<!-- <%if (path === '/user/disease') { %>
-					<%- include('../partials/diseaseContent'); %>
-					<% } %>
-					<%if (path === '/user/userHospital') { %>
-					<%- include('../partials/HospitalProfileContent'); %>
-					<% } %>
-					<%if (path === '/user/userHospitalD') { %>
-					<%- include('../partials/HospitalProfileContentD'); %>
-					<% } %> -->
+
+				
+				
 				<div class="col-lg-2 col-sm-0 col-12 order-2 order-sm-3" id="pSec3">
 					<div id="Dr"><a>Patients</a><img src="../img/doctor-icon.png" class="Icons doctor-icon"></div>
 					<form method="POST" action="/hospital/search" id="search-form">
@@ -280,6 +275,10 @@
 						</ul>
 						
 				</div>
+				 
+		<%if (path === '/hospital/patient') { %>
+			<%- include('../partials/profileContent'); %>
+			<% } %>
 	
 			</div>
 		</div>
@@ -288,10 +287,11 @@
 	<div class="mobile-view"><div class="container-fluid profile-body">
 		<%if (path === '/hospital/profile'||path==='/hospital/patient'||path==='/hospital/search') { %>
 		<div class="row">
+			<div class="col-sm-12"><%- include('../partials/message'); %></div>
 			<div class="col-lg-2 col-sm-4 col-12 order-3 order-sm-1" id="pSec1">
 				<div id="leftPanel">
 					<div class="lists active-list">
-						<a href="#">Profile</a>
+						<a href="/hospital/profile">Profile</a>
 						<img src="../img/profile.png" class="Icons profile-icon">
 					</div>
 				
@@ -321,7 +321,7 @@
 						<img src="../img/camera.png" id="Camera">
 					</div>
 					<div class="name-id">
-						<h5 id="name">Kristin</h5>
+						<h5 id="name"><%= hospital.hospitalName %></h5>
 						<h4 id="heading1">Patient Id-<span id="patientId"></span></h4>
 					</div>	
 					<div id="patientDetails">
@@ -344,15 +344,18 @@
 			</div>
 			<% } %>
 
+			<%if (path === '/hospital/patient') { %>
+				<%- include('../partials/profileContent'); %>
+				<% } %>
 
-
+           
 
 			
 			<div class="col-lg-2 col-sm-0 col-12 order-2 order-sm-3" id="pSec3">
 
 				<!-- mobile sideNav-->
 				<div id="mySidenav" class="sidenav">
-					<div><p class="sidenavHeader">Patients<a href="javascript:void(0)" class="closebtn" onclick=closeNav() ><i class="fa fa-angle-left sideNav " aria-hidden="true"></i></a></p></div>
+					<div id="Dr"><p class="sidenavHeader">Patients<a href="javascript:void(0)" class="closebtn" onclick=closeNav() ><i class="fa fa-angle-left sideNav " aria-hidden="true"></i></a></p></div>
 				
 				<!-- <div id="Dr"><a>Patients Mobile</a><img src="../img/doctor-icon.png" class="Icons doctor-icon"></div> -->
 				<form method="POST" action="/hospital/search" id="search-form">
@@ -401,9 +404,10 @@
 
 		</div>
 		<%}%>
-		<%if (path === '/user/disease') { %>
-			<%- include('../partials/diseaseContent'); %>
-			<% } %>
+       
+          
+		
+		
 	</div>
 </div>
 <%- include('../partials/footer'); %>
