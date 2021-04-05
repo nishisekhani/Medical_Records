@@ -47,11 +47,11 @@ body{
 }
 .active-list {
     width: 85%;
-    margin: 0 7.5% 7%;
-    background: #019dfa;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 16px;
-    padding: 5%;
+    margin: 0 7.5% 7% ;
+    background: #019dfa !important;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 16px !important;
+    padding: 5% !important;
 }
 .active-list a {
     color: white !important;
@@ -221,7 +221,11 @@ body{
 .hospital-list{
     display: none;
 }
-
+#patientList{
+    margin: 0;
+    margin-top: 3vh;
+    padding: 0;
+}
 
 /*________________________sideNav styles ________________*/
 

@@ -189,21 +189,25 @@
 									<% if(path!=='/user/userHospitalD') { %>
 									<ul id="patientList">
 										<% for(var d of hospitals) { %>
-										<div id="patientId">
-											<div id="patientImage"></div>
-											<div id="patientName">
-												<a href="/user/userHospital?id=<%=d.hospitalId._id%>">
-													<li><%= d.hospitalId.hospitalName %></li>
-												</a>
+											<div id="patientId2">
+												<div id="patientImage2">
+													<img src="../img/ProfilePic.png">
+												</div>
+												<div id="patientName2">
+													<a href="/user/userHospital?id=<%=d.hospitalId._id%>">
+														<%= d.hospitalId.hospitalName %>
+													</a>
+												</div>
 											</div>
-										</div>
 										<% } %>
 									</ul>
 									<% } %>
 								</div>
 								<!-- <div id="Drs"><button class=" sideNavButton" onclick=openNavtab() type="button ">Doctors<i class="fa fa-angle-right sideNav" aria-hidden="true" onclick=openNav()></i></button></div>				 -->
-								<div id="Drs"><button class=" sideNavButton lists" onclick=openNavtab()
-										type="button "><a>Doctors</a><img src="../img/doctor-icon.png"
+								
+								<div id="Drs">
+									<button class="<%= path === '/user/userHospital' ? 'sideNavButton lists active-list' : 'sideNavButton lists' %>" onclick=openNavtab() type="button ">
+										<a>Hospitals</a><img src="../img/doctor-icon.png"
 											class="Icons Icons-invert" onclick=openNavtab()></button></div>
 							</div>
 						</div>
@@ -288,14 +292,16 @@
 						<% if(path!=='/user/userHospitalD') { %>
 						<ul id="patientList">
 							<% for(var d of hospitals) { %>
-							<div id="patientId2">
-								<div id="patientImage2"></div>
-								<div id="patientName2">
-									<a href="/user/userHospital?id=<%=d.hospitalId._id%>">
-										<li><%= d.hospitalId.hospitalName %></li>
-									</a>
+								<div id="patientId2">
+									<div id="patientImage2">
+										<img src="../img/ProfilePic.png">
+									</div>
+									<div id="patientName2">
+										<a href="/user/userHospital?id=<%=d.hospitalId._id%>">
+											<%= d.hospitalId.hospitalName %>
+										</a>
+									</div>
 								</div>
-							</div>
 							<% } %>
 						</ul>
 						<% } %>
@@ -306,7 +312,7 @@
 	</div>
 
 	<div class="mobile-view"><div class="container-fluid profile-body">
-		<%if (path === '/user/profile'||path==='/user/userHospital'||path==='/user/hospitalSearch'||path==='/user/userHospitalD') { %>
+		<%if (path === '/user/profile'||path==='/user/hospitalSearch'||path==='/user/userHospitalD') { %>
 		<div class="row">
 			<div class="col-sm-12"><%- include('../partials/message'); %></div>
 			<div class="col-lg-2 col-sm-4 col-12 order-3 order-sm-1" id="pSec1">
@@ -369,8 +375,15 @@
 						<img src="../img/camera.png" id="Camera">
 					</div>
 					<div class="name-id">
-						<h5 id="name">Kristin</h5>
-						<h4 id="heading1">Patient Id-<span id="patientId"></span></h4>
+						<h5 id="name">
+							<%if (user.name) { %>
+								<%=user.name %>
+								<% } %>
+						</h5>
+						<h4 id="heading1">Patient Id- <%if (user.short_id) { %>
+							<%=user.short_id %>
+							<% } %>
+							<span id="patientId"></span></h4>
 					</div>	
 					<div id="patientDetails">
 						<div class="heading-and-edit-icon">
@@ -385,10 +398,14 @@
 						<label for="Address" class="detailLevels">Address : </label>
 						<input type="text" class="detailFields" id="Address">
 						<br>
-						<label for="PhoneNo" class="detailLevels">Phone No. : </label>
+						<label for="PhoneNo" class="detailLevels">Phone No. : <%if (user.phoneNumber) { %>
+							<%=user.phoneNumber %>
+							<% } %></label>
 						<input type="tel" class="detailFields" id="PhoneNo">
 						<br>
-						<label for="Email" class="detailLevels">Email : </label>
+						<label for="Email" class="detailLevels">Email : <%if (user.email) { %>
+							<%=user.email %>
+							<% } %></label>
 						<input type="email" class="detailFields" id="Email">
 						<br>
 					</div>
@@ -396,9 +413,7 @@
 			</div>
 			<% } %>
 
-			<%if (path === '/user/userHospital') { %>
-				<%- include('../partials/HospitalProfileContent'); %>
-				<% } %>
+			
 			<div class="col-lg-2 col-sm-0 col-12 order-2 order-sm-3" id="pSec3">
 				<div id="mySidenav" class="sidenav">
 					<div id="Dr">
@@ -418,14 +433,16 @@
 					<%if(path!=='/user/userHospitalD') { %>
 					<ul id="patientList">
 						<% for(var d of hospitals) { %>
-						<div id="patientId">
-							<div id="patientImage"></div>
-							<div id="patientName">
-								<a href="/user/userHospital?id=<%=d.hospitalId._id%>">
-									<li><%= d.hospitalId.hospitalName %></li>
-								</a>
+							<div id="patientId2">
+								<div id="patientImage2">
+									<img src="../img/ProfilePic.png">
+								</div>
+								<div id="patientName2">
+									<a href="/user/userHospital?id=<%=d.hospitalId._id%>">
+										<%= d.hospitalId.hospitalName %>
+									</a>
+								</div>
 							</div>
-						</div>
 						<% } %>
 					</ul>
 					<% } %>
@@ -441,7 +458,11 @@
 		<%}%>
 		<%if (path === '/user/disease') { %>
 			<%- include('../partials/diseaseContent'); %>
-			<% } %>
+		<% } %>
+
+		<%if (path === '/user/userHospital') { %>
+			<%- include('../partials/HospitalProfileContent'); %>
+		<% } %>
 	</div>
 </div>
 <%- include('../partials/footer'); %>
