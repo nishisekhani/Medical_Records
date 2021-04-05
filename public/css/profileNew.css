@@ -233,6 +233,49 @@ body{
     display: none;
 }
 
+
+/*________________________sideNav styles ________________*/
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 22px 18px rgba(0, 0, 0, 0.04);
+    overflow-x: hidden;
+    padding-top: 0;
+    transition: 0.5s;
+    z-index: 1200;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    display: inline;
+    top: 1%;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
 /* tab view */
 @media (max-width: 992px) {
     #pSec3{
