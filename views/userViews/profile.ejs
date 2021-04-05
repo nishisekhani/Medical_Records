@@ -132,9 +132,9 @@
 				<div class="col-sm-12"><%- include('../partials/message'); %></div>
 				<div class="col-lg-2 col-sm-4 col-12 order-3 order-sm-1" id="pSec1">
 					<div id="leftPanel">
-						<div class="lists active-list">
+						<div class="<%= path === '/user/profile' ? 'lists active-list' : 'lists' %>">
 							<a href="/user/profile">Profile</a>
-							<img src="../img/profile.png" class="Icons profile-icon">
+							<img src="../img/profile.png" class="Icons Icons-invert">
 						</div>
 						<!-- <div class="lists">
 							<a href="#" onclick="myFunction()" class="dropbtn">Disease</a>
@@ -143,7 +143,8 @@
 								<a id="myBtn" onclick=openModal()>Add New</a>
 							</div>
 						</div> -->
-						<div class="lists dropdown">
+						<!-- <div class="lists dropdown"> -->
+							<div class="<%= path === '/user/disease' ? 'lists active-list dropdown' : 'lists dropdown' %>">
 							<a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Diseases
 							  </a>
@@ -167,15 +168,16 @@
 							<a href="#">Message</a>
 							<img src="../img/message.png" class="Icons">
 						</div>
-						<div class="lists hospital-list">
+						<div class="hospital-list">
 							<div class=" Doctor-list">
 								<div id="mySidenavTab" class="sidenav">
 									<div id="Dr">
-										<p class="sidenavHeader">Hospitals<a href="javascript:void(0)" class="closebtn"
-												onclick="closeNavtab()"><i class="fa fa-angle-left sideNav "
-													aria-hidden="true"></i></a></p>
+										<p class="sidenavHeader">Hospitals</p>
+										<a href="javascript:void(0)" class="closebtn"
+										onclick="closeNavtab()"><i class="fa fa-angle-left sideNav "
+										aria-hidden="true"></i></a>
 									</div>
-									<form method="POST" action="/user/hospitalSearch">
+									<form method="POST" action="/user/hospitalSearch" id="hospital-search" class="sidenav-form"> 
 										<input type="text" placeholder="Search..."
 											class="mobile-preview shadow floating-animate" name="hname" id="id_search">
 										<button id="id_search_button">click</button>
@@ -202,7 +204,7 @@
 								<!-- <div id="Drs"><button class=" sideNavButton" onclick=openNavtab() type="button ">Doctors<i class="fa fa-angle-right sideNav" aria-hidden="true" onclick=openNav()></i></button></div>				 -->
 								<div id="Drs"><button class=" sideNavButton lists" onclick=openNavtab()
 										type="button "><a>Doctors</a><img src="../img/doctor-icon.png"
-											class="Icons doctor-icon" onclick=openNavtab()></button></div>
+											class="Icons Icons-invert" onclick=openNavtab()></button></div>
 							</div>
 						</div>
 						<!-- <div class=" Doctor-list">
@@ -286,9 +288,9 @@
 						<% if(path!=='/user/userHospitalD') { %>
 						<ul id="patientList">
 							<% for(var d of hospitals) { %>
-							<div id="patientId">
-								<div id="patientImage"></div>
-								<div id="patientName">
+							<div id="patientId2">
+								<div id="patientImage2"></div>
+								<div id="patientName2">
 									<a href="/user/userHospital?id=<%=d.hospitalId._id%>">
 										<li><%= d.hospitalId.hospitalName %></li>
 									</a>
@@ -400,14 +402,14 @@
 			<div class="col-lg-2 col-sm-0 col-12 order-2 order-sm-3" id="pSec3">
 				<div id="mySidenav" class="sidenav">
 					<div id="Dr">
-						<p class="sidenavHeader">Hospitals<a href="javascript:void(0)" class="closebtn"
-								onclick=closeNav()><i class="fa fa-angle-left sideNav " aria-hidden="true"></i></a>
-						</p>
+						<p class="sidenavHeader">Hospitals</p>
+						<a href="javascript:void(0)" class="closebtn"
+						onclick=closeNav()><i class="fa fa-angle-left sideNav " aria-hidden="true"></i></a>
 					</div>
-					<form method="POST" action="/user/hospitalSearch">
+					<form method="POST" action="/user/hospitalSearch" class="sidenav-form">
 						<input type="text" placeholder="Search..." class="mobile-preview shadow floating-animate"
-							name="hname" id="id_search1">
-						<button id="id_search_button1">click</button>
+							name="hname" id="id_search">
+						<button id="id_search_button">click</button>
 					</form>
 					<%if (path === '/user/hospitalSearch') { %>
 
@@ -428,8 +430,11 @@
 					</ul>
 					<% } %>
 				</div>
-				<div id="Dr"><a>Doctors</a><img src="../img/doctor-icon.png" class="Icons doctor-icon"
-						onclick=openNav()></div>
+				<div id="Dr-sec3">
+					<button class="sideNavButton" onclick=openNav()>
+					<a>Doctors</a><img src="../img/doctor-icon.png" class="Icons doctor-icon"
+						></button>
+					</div>
 			</div>
 
 		</div>

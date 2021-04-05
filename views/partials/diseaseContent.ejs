@@ -27,11 +27,13 @@
             <div class="add-documents">
            
             <h5 id="name1">Disease Name-: <%=disease.name%></h5> 
-            <button id="myBtn"  data-toggle="modal" data-target="#myModal" class="add-documents-button" onclick=oepnModal()>Add</button>
+            <button id="myBtn" data-toggle="modal" data-target="#myModal" class="add-documents-button" onclick=oepnModal()>Add <img src="../img/profile-edit-icon.png">
+            </button>
             </div>
+            <div class="disease-flexbox">
+
             <h5 id="name1">Uploaded Documents</h5>
 
-            <div class="disease-flexbox">
             <%for(var i of disease.document){%>
                 <div class="media" style="background: rgb(179, 232, 241)">
                     <img class="pdf-img align-self-center mr-3" src="../img/pdf-image.png" alt="Generic placeholder image" style="width: 80px" />
@@ -45,9 +47,25 @@
                 
                 <%}%>
             </div>
+
+            <div class="disease-flexbox sub4-2">
+            <h5 id="name1">Medicine</h5>
+                <%for(var i of disease.medicine){%>
+                <div class="media" style="background: rgb(179, 232, 241)">
+                    <img class="pdf-img align-self-center mr-3" src="../img/pdf-image.png" alt="Generic placeholder image" style="width: 80px" />
+                    <div style="display: inline-block" class="media-heading align-self-center"><%=i.originalName%></div>
+                    <div class="media-body">
+                        <p>
+                            <a href="/user/download/medicine/pdf?pdfdownload=<%=i.filename%>" style="color: black"><i class="fa fa-download fa-3x" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <%}%>
+            </div>
+
         </div>
     </div>
-    <div id="sub4">
+    <!-- <div id="sub4">
         <div class="container">
             <h5 id="name1">Medicine</h5>
             <div class="disease-flexbox">
@@ -64,5 +82,5 @@
                 <%}%>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
