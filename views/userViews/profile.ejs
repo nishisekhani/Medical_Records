@@ -77,8 +77,8 @@
 			<div class="row">
 				<div class="col-lg-2 col-sm-4 col-12 order-3 order-sm-1" id="pSec1">
 					<div id="leftPanel">
-						<div class="lists active-list">
-							<a href="#">Profile</a>
+						<div class="<%= path === '/user/profile' ? 'lists active-list' : 'lists' %>">
+							<a href="/user/profile">Profile</a>
 							<img src="../img/profile.png" class="Icons profile-icon">
 						</div>
 						<!-- <div class="lists">
@@ -197,9 +197,9 @@
 						<% if(path!=='/user/userHospitalD') { %>
 						<ul id="patientList">
 							<% for(var d of hospitals) { %>
-							<div id="patientId">
-								<div id="patientImage"></div>
-								<div id="patientName">
+							<div id="patientId2">
+								<div id="patientImage2"></div>
+								<div id="patientName2">
 									<a href="/user/userHospital?id=<%=d.hospitalId._id%>">
 										<li><%= d.hospitalId.hospitalName %></li>
 									</a>
