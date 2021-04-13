@@ -91,7 +91,7 @@
 				<div class="col-lg-2 col-sm-4 col-12 order-3 order-sm-1" id="pSec1">
 
 					<div id="leftPanel">
-						<div class="lists active-list">
+							<div class="<%= path === '/hospital/profile' ? 'lists active-list' : 'lists' %>">
 							<a href="/hospital/profile">Profile</a>
 							<img src="../img/profile.png" class="Icons profile-icon">
 						</div>
@@ -113,18 +113,21 @@
 							<img src="../img/message.png" class="Icons">
 						</div>
 						<div class="lists hospital-list">
-							<div id="mySidenavTab" class="sidenav">
-								<div id="Dr"><p class="sidenavHeader">Patients<a href="javascript:void(0)" class="closebtn" onclick="closeNavtab()"><i class="fa fa-angle-left sideNav " aria-hidden="true"></i></a></p></div>
-								<div>
-									<form method="POST" action="/hospital/search">
+							<div class= "Doctor-list">
+								<div id="mySidenavTab" class="sidenav">
+									<div id="Dr">
+										<p class="sidenavHeader">Patients</p>
+										<a href="javascript:void(0)" class="closebtn"
+										onclick="closeNavtab()"><i class="fa fa-angle-left sideNav "
+										aria-hidden="true"></i></a>
+									</div>
+	
+									<form method="POST" action="/hospital/search" class="sidenav-form">
 										<input type="text" placeholder="Enter patient unique ID to search" name="short_id"
 										class="mobile-preview shadow floating-animate" id="id_search">
 									<button id="id_search_button">Search</button>
 									</form>
-								   
-								</div>
-						
-				 
+									
 									<% if (foundUser) { %>
 										<div>
 											<div id="patientId2">
@@ -138,8 +141,6 @@
 												<% if (foundUser.nominee) { %>
 													<br>
 													<br>
-													
-													
 													<a class="btn btn-warning" href="/hospital/nominee/<%= foundUser.short_id %>"" role="button" id="search_button2">Request Nominee</a>
 										
 													<% } %>
@@ -151,25 +152,37 @@
 											
 										</div>
 									<% } %>
-									
-								<ul id="patientList">
-									<% for(var d of patients) { %>
-										<div id="patientId">
-											<div id="patientImage"></div>
-											<div id="patientName">
-											<a  href="/hospital/patient?id=<%=d.userId._id%>"><li><%= d.userId.name %></li></a>
+										
+									<ul id="patientList">
+										<% for(var d of patients) { %>
+											<div id="patientId2">
+												<div id="patientImage2">
+													<img src="../img/ProfilePic.png">
+												</div>
+												<div id="patientName2">
+												<a  href="/hospital/patient?id=<%=d.userId._id%>"><%= d.userId.name %></a>
+												</div>
 											</div>
-										</div>
-										<!-- <a  href="/hospital/patient/<%=d.userId %>"><li><%= d.userId.name %></li></a> -->
-									<% } %>
-								</ul>	
-							</div>
-							<!-- <div id="Drs"><button class=" sideNavButton" onclick=openNavtab() type="button ">Doctors<i class="fa fa-angle-right sideNav" aria-hidden="true" onclick=openNav()></i></button></div>				 -->
-							<div id="Drs"><button class=" sideNavButton lists" onclick=openNavtab() type="button "><a>Patients</a><img src="../img/doctor-icon.png" class="Icons doctor-icon"  onclick=openNavtab()></button></div>				
-					
+											<!-- <a  href="/hospital/patient/<%=d.userId %>"><li><%= d.userId.name %></li></a> -->
+										<% } %>
+									</ul>
+									
+									
+									
+								</div>
+								<!-- <div id="Drs"><button class=" sideNavButton" onclick=openNavtab() type="button ">Doctors<i class="fa fa-angle-right sideNav" aria-hidden="true" onclick=openNav()></i></button></div>				 -->
+								<div id="Drs">
+									<!-- <button class=" sideNavButton lists" onclick=openNavtab() type="button "><a>Patients</a><img src="../img/doctor-icon.png" class="Icons doctor-icon"  onclick=openNavtab()></button> -->
+									<button class="<%= path === '/hospital/search' ? 'sideNavButton lists active-list' : 'sideNavButton lists' %>" onclick=openNavtab() type="button ">
+										<!-- <button class="sideNavButton lists" onclick=openNavtab() type="button ">	 -->
+										<a>Patients</a><img src="../img/doctor-icon.png"
+											class="Icons Icons-invert" onclick=openNavtab()></button>
+								</div>				
+						
 
-							<!-- <a href="#">Patients Tab</a>
-							<img src="../img/doctor-icon.png" class="Icons-invert"> -->
+								<!-- <a href="#">Patients Tab</a>
+								<img src="../img/doctor-icon.png" class="Icons-invert"> -->
+							</div>
 						</div>
 						<!-- <div class=" Doctor-list">
 							<div id="mySidenavTab" class="sidenav">
@@ -212,10 +225,10 @@
 							</div>	
 							<!-- <label for="bloodGroup" class="detailLevels">Blood Group : </label>
 							<input type="text" class="detailFields" id="bloodGroup"> -->
-							<br>
+							<!-- <br> -->
 							<!-- <label for="Address" class="detailLevels">Address : </label>
 							<input type="text" class="detailFields" id="Address"> -->
-							<br>
+							<!-- <br> -->
 							<label for="PhoneNo" class="detailLevels">Phone No. : <%if (hospital.phoneNumber) { %>
 								<%=hospital.phoneNumber %>
 								<% } %> </label>
@@ -241,10 +254,12 @@
 						<button id="id_search_button1">Search</button>
 					</form>
 					<% if (foundUser) { %>
-						<div>
+						<div class="searched-patient">
 							<div id="patientId2">
-							<div id="patientImage2"></div>
-							<div id="patientName1">
+							<div id="patientImage2">
+								<img src="../img/ProfilePic.png">
+							</div>
+							<div id="patientName2">
 							<p><%= foundUser.name %></p>
 							</div>
 							</div>
@@ -261,14 +276,17 @@
 							<% } %>
 							
 						</div>
+						<hr>
 					<% } %>
 	
 						<ul id="patientList">
 							<% for(var d of patients) { %>
-							<div id="patientId">
-								<div id="patientImage"></div>
-								<div id="patientName">
-									<a  href="/hospital/patient?id=<%=d.userId._id%>"><li><%= d.userId.name %></li></a>
+							<div id="patientId2">
+								<div id="patientImage2">
+									<img src="../img/ProfilePic.png">
+								</div>
+								<div id="patientName2">
+									<a  href="/hospital/patient?id=<%=d.userId._id%>"><%= d.userId.name %></a>
 								</div>
 							</div>
 							<% } %>
@@ -278,19 +296,19 @@
 				 
 		<%if (path === '/hospital/patient') { %>
 			<%- include('../partials/profileContent'); %>
-			<% } %>
+		<% } %>
 	
 			</div>
 		</div>
 	</div>
 
 	<div class="mobile-view"><div class="container-fluid profile-body">
-		<%if (path === '/hospital/profile'||path==='/hospital/patient'||path==='/hospital/search') { %>
+		<%if (path === '/hospital/profile'||path==='/hospital/search') { %>
 		<div class="row">
 			<div class="col-sm-12"><%- include('../partials/message'); %></div>
 			<div class="col-lg-2 col-sm-4 col-12 order-3 order-sm-1" id="pSec1">
 				<div id="leftPanel">
-					<div class="lists active-list">
+					<div class="<%= path === '/hospital/profile' ? 'lists active-list' : 'lists' %>">
 						<a href="/hospital/profile">Profile</a>
 						<img src="../img/profile.png" class="Icons profile-icon">
 					</div>
@@ -344,30 +362,36 @@
 			</div>
 			<% } %>
 
-			<%if (path === '/hospital/patient') { %>
-				<%- include('../partials/profileContent'); %>
-				<% } %>
+			
 
            
 
 			
 			<div class="col-lg-2 col-sm-0 col-12 order-2 order-sm-3" id="pSec3">
-
-				<!-- mobile sideNav-->
 				<div id="mySidenav" class="sidenav">
-					<div id="Dr"><p class="sidenavHeader">Patients<a href="javascript:void(0)" class="closebtn" onclick=closeNav() ><i class="fa fa-angle-left sideNav " aria-hidden="true"></i></a></p></div>
+					<!-- <div id="Dr">
+						<p class="sidenavHeader">Patients
+						<a href="javascript:void(0)" class="closebtn" onclick=closeNav() ><i class="fa fa-angle-left sideNav " aria-hidden="true"></i></a></p>
+					</div> -->
+					<div id="Dr">
+						<p class="sidenavHeader">Patients</p>
+						<a href="javascript:void(0)" class="closebtn"
+						onclick=closeNav()><i class="fa fa-angle-left sideNav " aria-hidden="true"></i></a>
+					</div>
 				
 				<!-- <div id="Dr"><a>Patients Mobile</a><img src="../img/doctor-icon.png" class="Icons doctor-icon"></div> -->
-				<form method="POST" action="/hospital/search" id="search-form">
+				<form method="POST" action="/user/hospitalSearch" class="sidenav-form">
 					<input type="text" placeholder="Search..." class="mobile-preview shadow floating-animate"
-						name="short_id" id="id_search1">
-					<button id="id_search_button1">Search</button>
+						name="hname" id="id_search">
+					<button id="id_search_button">click</button>
 				</form>
 				<% if (foundUser) { %>
 					<div>
 						<div id="patientId2">
-						<div id="patientImage2"></div>
-						<div id="patientName1">
+						<div id="patientImage2">
+							<img src="../img/ProfilePic.png">
+						</div>
+						<div id="patientName2">
 						<p><%= foundUser.name %></p>
 						</div>
 						</div>
@@ -382,30 +406,36 @@
 					    <% } else { %>
 							<a class="btn btn-primary" href="/hospital/patient?id=<%= foundUser._id %>"" role="button" id="search_button2">View details</a>
 					    <% } %>
-						
 					</div>
+					<hr>
 				<% } %>
-					<ul id="patientList1">
+					<ul id="patientList">
 						<% for(var d of patients) { %>
-						<div id="patientId1">
-							<div id="patientImage1"></div>
-							<div id="patientName1">
-								<a  href="/hospital/patient?id=<%=d.userId._id%>"><li><%= d.userId.name %></li></a>
+						<div id="patientId2">
+							<div id="patientImage2">
+								<img src="../img/ProfilePic.png">
+							</div>
+							<div id="patientName2">
+								<a  href="/hospital/patient?id=<%=d.userId._id%>"><%= d.userId.name %></a>
 							</div>
 						</div>
 						<% } %>
 					</ul>
-
-
-
-			</div>
-		    <div id="Dr"><a>Patients</a><img src="../img/doctor-icon.png" class="Icons doctor-icon" onclick=openNav()  ></div>
+				</div>
+				<div id="Dr-sec3">
+					<button class="sideNavButton" onclick=openNav()>
+					<a>Patients</a><img src="../img/doctor-icon.png" class="Icons doctor-icon"
+						></button>
+				</div>
+		    <!-- <div id="Dr"><a>Patients</a><img src="../img/doctor-icon.png" class="Icons doctor-icon" onclick=openNav()  ></div> -->
 			</div>
 
 		</div>
 		<%}%>
        
-          
+		<%if (path === '/hospital/patient') { %>
+			<%- include('../partials/profileContent'); %>
+		<% } %>
 		
 		
 	</div>
