@@ -105,7 +105,11 @@
 	position: relative;
 	padding: 2vh 0 1vh;
 	margin-bottom: 2vh;
+	
 }
+/* #name1:first-child{
+	color: #9593a0 !important;
+} */
 .disease-flexbox{
 	display: flex;
 	flex-direction: column;
@@ -127,8 +131,24 @@
 @media (max-width: 576px) {
 	#sub4{
 		margin-bottom: 15px;
+		box-shadow:none;
 	}
 	.disease-back-link{
 		display: block;
+	}
+}
+@media (max-width: 414px){
+	.align-self-center{
+		margin-right:15px !important;
+		overflow-x: scroll;
+	}
+	.pdf-img{
+		width:40px !important;
+		margin-right:0.1rem !important;
+		margin-left:10px  !important;
+	}
+	.fa-download .fa-3x{
+		width: 30px !important;
+		margin-left:3px !important;
 	}
 }
