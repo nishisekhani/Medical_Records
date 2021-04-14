@@ -104,12 +104,13 @@ module.exports.patient_get= async (req,res)=>{
         req.flash('error_msg','user not found')
         res.redirect('/hospital/profile')
     }
+    const diseases=await user.populate('disease','name').execPopulate()
     res.render("./hospitalViews/profile",{
         path:'/hospital/patient',
         user:user,
         patients, foundUser:null,access:null, 
         custom_flash:null, 
-        
+        diseases       
     })
 }
 

@@ -54,6 +54,7 @@ module.exports.editDetails_post=async(req,res)=>{
     await user.save()
     console.log("user saved",user)
     req.flash('success_msg','Details about the user has been saved')
+      
 
     res.redirect('/user/profile')
     }

@@ -295,8 +295,12 @@
 				</div>
 				 
 		<%if (path === '/hospital/patient') { %>
-			<%- include('../partials/profileContent'); %>
+			<%- include('../partials/HospitalProfilePatient'); %>
 		<% } %>
+		<%if (path === '/hospital/document') { %>
+			<%- include('../partials/diseaseContent'); %>
+		<% } %>
+
 	
 			</div>
 		</div>
@@ -433,7 +437,7 @@
 		<%}%>
        
 		<%if (path === '/hospital/patient') { %>
-			<%- include('../partials/profileContent'); %>
+			<%- include('../partials/HospitalProfilePatient'); %>
 		<% } %>
 		
 		
