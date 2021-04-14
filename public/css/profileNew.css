@@ -454,12 +454,12 @@ body{
          top:10px;
      }
  }
- @media (min-width:375px) and (max-width:400px){
+ @media (min-width:280px) and (max-width:420px){
      #patientDetails{
-         padding:5%;
+         padding:8%;
      }
  }
-@media (min-width:400px) and (max-width:540px){
+@media (min-width:420px) and (max-width:540px){
     #sub1{
         margin-bottom:0.5%;
         height:60vh;
@@ -472,6 +472,7 @@ body{
 } */
 #patientDetails{
     margin-bottom: 10%; 
+    padding:7%;
 }
 #pSec3{
     margin-top:2%;
