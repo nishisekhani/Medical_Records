@@ -58,7 +58,7 @@ p {
 }
 
 body {
-    overflow: hidden;
+    /* overflow: hidden; */
     overflow-y: auto;
     font-family: 'OpenSans-Regular';
     box-sizing: border-box;
