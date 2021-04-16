@@ -31,6 +31,28 @@
 
 	<%- include('../partials/navbar'); %>
 
+	
+<div id="myModal-dp-edit" class="modal-dp-edit">
+    <!-- Modal content -->
+    <div class="modal-content-dp-edit">
+      <span class="close-dp-edit">&times;</span>
+      <div class="col-md-6">
+        <form class="form-group"  method="POST" action="/user/profile/picupload" enctype="multipart/form-data">
+            <label>Upload Image</label>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <span class="btn btn-default btn-file">
+                        Browse… <input type="file" id="profilePic"name="profilePic">
+                    </span>
+                </span>
+                <input type="text" class="form-control" placeholder="Choose a file" readonly>
+            </div>
+            <img id='img-upload' style="max-width: 30%;"/>
+            <button type="save" class="save-dp-edit">Save</button>
+        </form>
+    </div>
+    </div>
+  </div>
 		<div id="myModalEdit" class="modal fadeIn">
 			<div class="modal-content-edit">
 				<div class="row">
@@ -613,7 +635,29 @@
 					});
 				});
 			</script>
-
+<script>
+	var modal = document.getElementById("myModal-dp-edit");
+	var btn = document.getElementById("Camera");
+	var span = document.getElementsByClassName("close-dp-edit")[0];
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+	  var span = document.getElementsByClassName("save-dp-edit")[0];
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+		modal.style.display = "none";
+	  }
+	} 
+	</script>
 			<script src="../js/sideNav.js"></script>
 			<script src="../js/profilePage.js"></script>
 			<script src="../js/sideNav.js"></script>
