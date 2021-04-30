@@ -98,30 +98,32 @@
 <link rel="stylesheet" href="../css/disease.css">
 
 <div class="col-lg-8 col-sm-8 col-12 order-1 order-sm-2" id="pSec2">
-    <div class="disease-back-link"><a href="/hospital/profile"><i class="fa fa-arrow-left" aria-hidden="true"></i>Home</a>
+    <div class="disease-back-link"><a href="/hospital/profile"><i class="fa fa-arrow-left"
+                aria-hidden="true"></i>Home</a>
     </div>
     
     <div id="sub1">
         <div class="images">
             <img src="../img/CoverPhoto.png" id="coverImg">
-            
-            <% if (user.profilePic){%>
-                <img src="../uploads/<%=user.email%>/profilePic/<%=user.profilePic%>"  id="profileImg">
-            <%}else{%>
-                <img src="../img/ProfilePic.png"  id="profileImg">
-            <%}%>
 
-            <img src="../img/camera.png" id="Camera">
+            <% if (user.profilePic){%>
+                <img src="../uploads/<%=user.email%>/profilePic/<%=user.profilePic%>" id="profileImg">
+                <%}else{%>
+                    <img src="../img/ProfilePic.png" id="profileImg">
+                    <%}%>
+
+                        <img src="../img/camera.png" id="Camera">
         </div>
         <div class="name-id">
 
-            <h5 id="name"><%if (user.name) { %>
-                <%=user.name %>
-                <% } %>
+            <h5 id="name">
+                <%if (user.name) { %>
+                    <%=user.name %>
+                        <% } %>
             </h5>
             <h4 id="heading1">Patient Id-:<%if (user.short_id) { %>
-                <%=user.short_id %>
-                <% } %><span id="patientId"></span>
+                    <%=user.short_id %>
+                        <% } %><span id="patientId"></span>
             </h4>
             <!-- <h4 id="heading1">Patient Id-<%if (user.short_id) { %>
                 <%=user.short_id %>
@@ -141,13 +143,13 @@
             <!-- <input type="text" class="detailFields" id="Address"> -->
             <br>
             <label for="PhoneNo" class="detailLevels">Phone No. : <%if (user.phoneNumber) { %>
-				<%=user.phoneNumber %>
-				<% } %> </label>
+                    <%=user.phoneNumber %>
+                        <% } %> </label>
             <!-- <input type="tel" class="detailFields" id="PhoneNo"> -->
             <br>
             <label for="Email" class="detailLevels">Email : <%if (user.email) { %>
-				<%=user.email %>
-				<% } %> </label>
+                    <%=user.email %>
+                        <% } %> </label>
             <!-- <input type="email" class="detailFields" id="Email"> -->
             <br>
             <label for="bloodGroup" class="detailLevels">Nominee Email: NOminee Email To be corrected</label>
@@ -161,7 +163,6 @@
                 <h5 id="name1">Specialists</h5>
             </div>
             <div class="disease-flexbox">
-
                 <h5 id="name1">Doctor 1</h5>
                 <h5 id="name1">Doctor 2</h5>
                 <h5 id="name1">Doctor 3</h5>
