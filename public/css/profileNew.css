@@ -47,11 +47,11 @@ body{
 }
 .active-list {
     width: 85%;
-    margin: 0 7.5% 7%;
-    background: #019dfa;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 16px;
-    padding: 5%;
+    margin: 0 7.5% 7% ;
+    background: #019dfa !important;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 16px !important;
+    padding: 5% !important;
 }
 .active-list a {
     color: white !important;
@@ -156,18 +156,7 @@ body{
     padding: 0;
     margin-bottom:20px;
 }
-#Dr {
-    background: #019dfa;
-    color: white;
-    padding: 5.5% 8%;
-    border-radius: 5px 5px 0px 0px;
-    font-weight: bold;
-    font-size: 140%;
-    font-family: Product Sans;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 #search-form{
     display: flex;
     flex-direction: column;
@@ -194,16 +183,36 @@ body{
     text-align: center;
     border: none;
 }
+/* Searched hospital */
+.searched-hospital{
+    margin-top: 8%;
+}
 #patientId2{
     display: flex;
     height: 15%;
-    justify-content: space-around;
-    margin: 7%;
+    /* justify-content: space-around; */
+    margin: 3%;
+    margin-left: 5%;
     align-items: center;
 }
+#patientId2:hover{
+    /* width: 85%;
+    margin: 0 7.5% 7%; */
+    background: #019dfa;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 2%;
+}
+#patientId2:hover #patientName2 a{
+    color: #ffffff;
+}
 #patientImage2 img{
-    height: 75px;
+    height: 60px;
     border-radius: 50%;
+}
+#patientName2{
+    position: relative;
+    left: 15px;
 }
 #patientName2 a{
     color: black;
@@ -211,6 +220,110 @@ body{
 }
 .hospital-list{
     display: none;
+}
+#patientList{
+    margin: 0;
+    margin-top: 3vh;
+    padding: 0;
+}
+
+/*________________________sideNav styles ________________*/
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 22px 18px rgba(0, 0, 0, 0.04);
+    overflow-x: hidden;
+    padding-top: 0;
+    transition: 0.5s;
+    z-index: 1200;
+}
+#Dr {
+    background: #019dfa;
+    color: white;
+    padding: 8%;
+    border-radius: 5px 5px 0px 0px;
+    font-weight: bold;
+    font-size: 140%;
+    font-family: Product Sans;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* #hospital-search{
+    margin: 2%;
+} */
+.sidenav-form{
+        display: flex;
+    justify-content: space-evenly;
+    margin-top: 4%;
+}
+.sidenavHeader{
+    margin: 0;
+    padding: 0;
+}
+/* The navigation menu links */
+.sidenav a {
+    /* padding: 8px 8px 8px 32px; */
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+/* .sidenav .closebtn {
+    position: absolute;
+    display: inline;
+    top: 1%;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+} */
+.Doctor-list{
+    width: 100%;
+}
+.sideNavButton {
+    border: none;
+    background: unset;
+    color: #9593a0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sideNavButton:hover, .sideNavButton:focus{
+    color: #ffffff;
+    border: none;
+    outline: none;
+}
+#id_search{
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+    font-weight: normal;
+    outline: none;
+}
+#id_search_button{
+    border-radius: 5px;
+    background-color: #019dfa;
+    color: white;
+    outline: none;
+    text-align: center;
+    border: none;
+    padding: 5px;
 }
 
 /* tab view */
@@ -220,14 +333,15 @@ body{
     }
     .hospital-list{
         display: flex;
+        margin-bottom: 10%;
+        padding: 0 7%;
+    
+    }
+    #patientImage2 img {
+        height: 55px;
     }
 }
 /* mobile view */
-/* @media (min-width:577px){
-    .mobile-view {
-        display: none;
-    }
-} */
 @media (max-width: 576px) {
     #sub1{
         height: 62vh;
@@ -261,38 +375,54 @@ body{
         position:relative;
        top:0px;
     }
-    #Dr{
-        margin-top:2%;
-        margin-left:10.5%;
-        height:80%;
-        width:80%;
-        font-size:180%;
-        padding:5%;
-        box-shadow: .5rem .5rem 1rem rgba(0,0,0,.15);
-        border-radius:5px 5px 0 0;
+    #Dr-sec3{
+        background: #019dfa;
+        color: white;
+        /* padding: 8%; */
+        border-radius: 5px 5px 0px 0px;
+        font-weight: bold;
+        font-size: 140%;
+        font-family: Product Sans;
+        /* margin-top: 2%; */
+        margin-left: 10.5%;
+        /* height: 80%; */
+        width: 80%;
+        font-size: 180%;
+        padding: 3%;
+        box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 15%);
+        border-radius: 5px 5px 0 0;
     }
-#Camera{
-    position: absolute;
-    bottom: 0;
-    left: 100px;
-}
-.lists {
-    margin-bottom: 5%;
- }
-#patientDetails{
-    position:relative;
-    top:5%;
-}
-.name-id{
-    position:relative;
-    top:10px;
-}
-.desktop-view {
-    display: block;
-}
-.mobile-view {
-    display: none;
-}
+    #Camera{
+        position: absolute;
+        bottom: 0;
+        left: 100px;
+    }
+    .lists {
+        margin-bottom: 5%;
+    }
+    .active-list{
+        padding: 3%;
+    }
+    .lists:hover{
+        padding: 3%;
+    }
+    #patientDetails{
+        position:relative;
+        top:5%;
+    }
+    .name-id{
+        position:relative;
+        top:10px;
+    }
+    .sideNavButton a{
+        color: #ffffff !important;
+    }
+    /* .desktop-view {
+        display: block;
+    }
+    .mobile-view {
+        display: none;
+    } */
 }
 @media (max-width: 576px) {
     .mobile-view {
@@ -311,11 +441,11 @@ body{
          position:relative;
          top:5%;
      }
-     #Dr{
+     /* #Dr{
          margin-top:0.5%;
          padding:5%;
          font-size:140%;
-     }
+     } */
      .lists {
         margin-bottom: 5%;
      }
@@ -324,34 +454,35 @@ body{
          top:10px;
      }
  }
- @media (min-width:375px) and (max-width:400px){
+ @media (min-width:280px) and (max-width:420px){
      #patientDetails{
-         padding:5%;
+         padding:8%;
      }
  }
-@media (min-width:400px) and (max-width:540px){
+@media (min-width:420px) and (max-width:540px){
     #sub1{
         margin-bottom:0.5%;
         height:60vh;
     }
-#Dr{
+/* #Dr{
     position:relative;
     bottom:5%;
     margin-top:0.5%;
     padding:5%;
-}
+} */
 #patientDetails{
     margin-bottom: 10%; 
+    padding:7%;
 }
 #pSec3{
     margin-top:2%;
 }
 }
-@media (min-width:540px) and (max-width:576px){
+/* @media (min-width:540px) and (max-width:576px){
     #Dr{
         padding:4%;
     }
-}
+} */
 /* Dropdown */
 .dropdown-menu {
     width: 90% !important;
@@ -393,7 +524,7 @@ body{
     }
 }
 
-#profileImg1 {
+#profile-iconImg1 {
     border-radius: 4rem;
     max-height: 4rem;
     max-width: 4rem;

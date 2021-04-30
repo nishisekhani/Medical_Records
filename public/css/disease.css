@@ -32,30 +32,36 @@
 	margin-right: 15px;
 }
 #sub4{
-	height: 100vh;
+	height: 89vh;
 	box-shadow: 3px 3px 15px rgb(0 0 0 / 25%);
     border-radius: 10px 10px 10px 10px;
 	margin-bottom: 10px;
 }
-
-.add-documents{
-	display:inline-flex;
-	width:100%
+.sub4-2{
+	margin-top: 4%;
 }
+
+.add-documents {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+}	
+
 
 .add-documents-button{
   
-   position: absolute;
+   /* position: absolute;
    top: 15px;
    right: 3px;
-    width: 100px;
+    width: 100px; */
     height: 40px;
     border-radius: 5px;
 	
-    background-color:black;
-    color: white;
+    background-color: unset;
+    /* color: white; */
     outline: none;
-    text-align: center;
+    /* text-align: center; */
     border: none;
 }
 
@@ -99,7 +105,11 @@
 	position: relative;
 	padding: 2vh 0 1vh;
 	margin-bottom: 2vh;
+	
 }
+/* #name1:first-child{
+	color: #9593a0 !important;
+} */
 .disease-flexbox{
 	display: flex;
 	flex-direction: column;
@@ -121,8 +131,24 @@
 @media (max-width: 576px) {
 	#sub4{
 		margin-bottom: 15px;
+		box-shadow:none;
 	}
 	.disease-back-link{
 		display: block;
+	}
+}
+@media (max-width: 414px){
+	.align-self-center{
+		margin-right:15px !important;
+		overflow-x: scroll;
+	}
+	.pdf-img{
+		width:40px !important;
+		margin-right:0.1rem !important;
+		margin-left:10px  !important;
+	}
+	.fa-download .fa-3x{
+		width: 30px !important;
+		margin-left:3px !important;
 	}
 }
