@@ -1,9 +1,9 @@
-body{
+body {
     overflow-y: scroll !important;
 }
-#pSec1{
-    position:relative;
-    top:15px;
+#pSec1 {
+    position: relative;
+    top: 15px;
     height: 91vh;
     background: #ffffff;
 }
@@ -47,7 +47,7 @@ body{
 }
 .active-list {
     width: 85%;
-    margin: 0 7.5% 7% ;
+    margin: 0 7.5% 7%;
     background: #019dfa !important;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25) !important;
     border-radius: 16px !important;
@@ -60,15 +60,15 @@ body{
     filter: brightness(0) invert(1);
     margin-top: 1%;
 }
-.Icons-invert{
+.Icons-invert {
     filter: brightness(0.5);
 }
-#pSec2{  
-    position:relative;  
+#pSec2 {
+    position: relative;
     top: 15px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
-#sub1{
+#sub1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -77,31 +77,33 @@ body{
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.25);
     border-radius: 10px 10px 10px 10px;
 }
-   
+
 .images {
     height: 40%;
     position: relative;
 }
 
-#coverImg{
+#coverImg {
     position: absolute;
     width: 100%;
     height: 85%;
     top: 0;
 }
-#profileImg{
+#profileImg {
     position: absolute;
     bottom: 0;
     left: 4%;
     border-radius: 50%;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+    width: 100px;
+    height: 100px;
 }
-#Camera{
+#Camera {
     position: absolute;
     bottom: 0;
     left: 120px;
 }
-.name-id{
+.name-id {
     padding-left: 5%;
 }
 #name {
@@ -121,13 +123,13 @@ body{
     padding: 4%;
     margin-bottom: 6%;
 }
-.heading-and-edit-icon{
+.heading-and-edit-icon {
     display: flex;
     justify-content: space-between;
     margin-bottom: 3%;
     align-items: center;
 }
-#myBtnEdit{
+#myBtnEdit {
     border: none;
     background: unset;
     cursor: pointer;
@@ -150,14 +152,14 @@ body{
     background-color: #ffffff;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-    position:relative;
+    position: relative;
     top: 15px;
     right: 5px;
     padding: 0;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
-#search-form{
+#search-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -171,7 +173,7 @@ body{
     padding: 5px;
     font-weight: normal;
     outline: none;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 #id_search_button1 {
     width: 40%;
@@ -184,10 +186,10 @@ body{
     border: none;
 }
 /* Searched hospital */
-.searched-hospital{
+.searched-hospital {
     margin-top: 8%;
 }
-#patientId2{
+#patientId2 {
     display: flex;
     height: 15%;
     /* justify-content: space-around; */
@@ -195,7 +197,7 @@ body{
     margin-left: 5%;
     align-items: center;
 }
-#patientId2:hover{
+#patientId2:hover {
     /* width: 85%;
     margin: 0 7.5% 7%; */
     background: #019dfa;
@@ -203,25 +205,25 @@ body{
     border-radius: 16px;
     padding: 2%;
 }
-#patientId2:hover #patientName2 a{
+#patientId2:hover #patientName2 a {
     color: #ffffff;
 }
-#patientImage2 img{
+#patientImage2 img {
     height: 60px;
     border-radius: 50%;
 }
-#patientName2{
+#patientName2 {
     position: relative;
     left: 15px;
 }
-#patientName2 a{
+#patientName2 a {
     color: black;
     text-decoration: none;
 }
-.hospital-list{
+.hospital-list {
     display: none;
 }
-#patientList{
+#patientList {
     margin: 0;
     margin-top: 3vh;
     padding: 0;
@@ -257,12 +259,12 @@ body{
 /* #hospital-search{
     margin: 2%;
 } */
-.sidenav-form{
-        display: flex;
+.sidenav-form {
+    display: flex;
     justify-content: space-evenly;
     margin-top: 4%;
 }
-.sidenavHeader{
+.sidenavHeader {
     margin: 0;
     padding: 0;
 }
@@ -290,7 +292,7 @@ body{
     font-size: 36px;
     margin-left: 50px;
 } */
-.Doctor-list{
+.Doctor-list {
     width: 100%;
 }
 .sideNavButton {
@@ -304,19 +306,20 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-.sideNavButton:hover, .sideNavButton:focus{
+.sideNavButton:hover,
+.sideNavButton:focus {
     color: #ffffff;
     border: none;
     outline: none;
 }
-#id_search{
+#id_search {
     border-radius: 5px;
     font-size: 16px;
     padding: 5px;
     font-weight: normal;
     outline: none;
 }
-#id_search_button{
+#id_search_button {
     border-radius: 5px;
     background-color: #019dfa;
     color: white;
@@ -328,14 +331,13 @@ body{
 
 /* tab view */
 @media (max-width: 992px) {
-    #pSec3{
+    #pSec3 {
         display: none;
     }
-    .hospital-list{
+    .hospital-list {
         display: flex;
         margin-bottom: 10%;
         padding: 0 7%;
-    
     }
     #patientImage2 img {
         height: 55px;
@@ -343,39 +345,39 @@ body{
 }
 /* mobile view */
 @media (max-width: 576px) {
-    #sub1{
+    #sub1 {
         height: 62vh;
-        box-shadow:none;
+        box-shadow: none;
     }
     #patientDetails {
         padding: 2% 4%;
         margin-bottom: 5%;
-        margin-top:1%;
+        margin-top: 1%;
     }
-    .heading-and-edit-icon{
+    .heading-and-edit-icon {
         margin-bottom: 1%;
     }
-    #name{
+    #name {
         font-size: 120%;
     }
-    #pSec2{
-        height:50%;
+    #pSec2 {
+        height: 50%;
     }
-    #pSec3{
+    #pSec3 {
         display: block;
-       margin-top:5%;
-       margin-bottom:0px;
-       box-shadow:none;
+        margin-top: 5%;
+        margin-bottom: 0px;
+        box-shadow: none;
     }
-    #search-form{
+    #search-form {
         display: none;
     }
-    #pSec1{
+    #pSec1 {
         height: unset;
-        position:relative;
-       top:0px;
+        position: relative;
+        top: 0px;
     }
-    #Dr-sec3{
+    #Dr-sec3 {
         background: #019dfa;
         color: white;
         /* padding: 8%; */
@@ -392,7 +394,7 @@ body{
         box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 15%);
         border-radius: 5px 5px 0 0;
     }
-    #Camera{
+    #Camera {
         position: absolute;
         bottom: 0;
         left: 100px;
@@ -400,21 +402,21 @@ body{
     .lists {
         margin-bottom: 5%;
     }
-    .active-list{
+    .active-list {
         padding: 3%;
     }
-    .lists:hover{
+    .lists:hover {
         padding: 3%;
     }
-    #patientDetails{
-        position:relative;
-        top:5%;
+    #patientDetails {
+        position: relative;
+        top: 5%;
     }
-    .name-id{
-        position:relative;
-        top:10px;
+    .name-id {
+        position: relative;
+        top: 10px;
     }
-    .sideNavButton a{
+    .sideNavButton a {
         color: #ffffff !important;
     }
     /* .desktop-view {
@@ -432,50 +434,51 @@ body{
         display: none;
     }
 }
- @media (max-width:320px){
-     #sub1{
-         margin-top:7%;
-         height:65vh;
-     }
-     #patientDetails{
-         position:relative;
-         top:5%;
-     }
-     /* #Dr{
+@media (max-width: 320px) {
+    #sub1 {
+        margin-top: 7%;
+        height: 65vh;
+    }
+    #patientDetails {
+        position: relative;
+        top: 5%;
+    }
+    /* #Dr{
          margin-top:0.5%;
          padding:5%;
          font-size:140%;
      } */
-     .lists {
+    .lists {
         margin-bottom: 5%;
-     }
-     .name-id{
-         position:relative;
-         top:10px;
-     }
- }
- @media (min-width:375px) and (max-width:400px){
-     #patientDetails{
-         padding:5%;
-     }
- }
-@media (min-width:400px) and (max-width:540px){
-    #sub1{
-        margin-bottom:0.5%;
-        height:60vh;
     }
-/* #Dr{
+    .name-id {
+        position: relative;
+        top: 10px;
+    }
+}
+@media (min-width: 280px) and (max-width: 420px) {
+    #patientDetails {
+        padding: 8%;
+    }
+}
+@media (min-width: 420px) and (max-width: 540px) {
+    #sub1 {
+        margin-bottom: 0.5%;
+        height: 60vh;
+    }
+    /* #Dr{
     position:relative;
     bottom:5%;
     margin-top:0.5%;
     padding:5%;
 } */
-#patientDetails{
-    margin-bottom: 10%; 
-}
-#pSec3{
-    margin-top:2%;
-}
+    #patientDetails {
+        margin-bottom: 10%;
+        padding: 7%;
+    }
+    #pSec3 {
+        margin-top: 2%;
+    }
 }
 /* @media (min-width:540px) and (max-width:576px){
     #Dr{
@@ -486,8 +489,8 @@ body{
 .dropdown-menu {
     width: 90% !important;
     min-width: none !important;
-    min-height: 20px ;
-    max-height: 150px ;
+    min-height: 20px;
+    max-height: 150px;
     overflow-y: scroll;
     background: #f3f3f3 !important;
     box-shadow: 4px 4px 10px rgb(0 0 0 / 25%) !important;
@@ -495,7 +498,7 @@ body{
 }
 
 /* Links inside the dropdown */
-.dropdown-item  {
+.dropdown-item {
     color: #9593a0 !important;
     padding: 12px 16px;
     text-decoration: none;
@@ -518,7 +521,7 @@ body{
     background-color: #9593a0;
 }
 @media (max-width: 576px) {
-    .dropdown-menu{
+    .dropdown-menu {
         transform: translateX(5%);
     }
 }

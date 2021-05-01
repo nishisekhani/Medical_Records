@@ -26,6 +26,28 @@
 <body>
     
     <%- include('../partials/navbar'); %>
+	<div id="myModal-dp-edit" class="modal-dp-edit">
+		<!-- Modal content -->
+		<div class="modal-content-dp-edit">
+		  <span class="close-dp-edit">&times;</span>
+		  <div class="col-md-6">
+			<form class="form-group"  method="POST" action="/hospital/profile/picupload" enctype="multipart/form-data">
+				<label>Upload Image</label>
+				<div class="input-group">
+					<span class="input-group-btn">
+						<span class="btn btn-default btn-file">
+							Browse… <input type="file" id="profilePic"name="profilePic">
+						</span>
+					</span>
+					<input type="text" class="form-control" placeholder="Choose a file" readonly>
+				</div>
+				<img id='img-upload' style="max-width: 30%;"/>
+				<button type="save" class="save-dp-edit">Save</button>
+			</form>
+		</div>
+		</div>
+	  </div>
+	
 	<link rel="stylesheet" href="/css/flash-message.css">
 	<div id="flash-message">
 		<% if (custom_flash) { %>
@@ -35,6 +57,60 @@
 	</div>
 	
 	<script src="/js/flash-message.js"></script>
+
+    <div id="myModalEdit" class="modal fadeIn">
+		<div class="modal-content-edit">
+			<div class="row">
+				<div class="content-top-edit ">
+					<a href="#" class="img-rounded"><img src="../img/ProfilePic.png" id="profileImg1"></a>
+					<span><button type="button" class="cancel-edit fadeOut" data-dismiss="modal">CANCEL</button></span>
+					<h4>Profile details</h4>
+				</div>
+			</div>
+			<form class="form-modal-edit" method="POST" >
+				<!--Dont remove the enctype-->
+				<div class="group1">
+					<input type="text" name="adminName" aria-required="true" required><span class="highlight1"></span><span
+						class="bar1"></span>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Nominee
+						Name</label>
+					<span><button class="save1-edit" formaction="#" >SAVE</button></span>
+					<!-- Dont remove the name and value attribute-->
+				</div>
+				<div class="group1-edit">
+					<input type="text" name="nomineeEmail" aria-required="true" required><span class="highlight1"></span><span
+						class="bar1"></span>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Nominee
+						Email</label>
+					
+					<!-- Dont remove the name and value attribute-->
+				</div>
+				<div class="group1">
+					<input type="text" name="nomineePhn" aria-required="true" required><span class="highlight1"></span><span
+						class="bar1"></span>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Nominee
+						Phone Number</label>
+				   
+					<!-- Dont remove the name and value attribute-->
+				</div>
+				<div class="group1">
+					<input type="text" name="address" aria-required="true" required><span class="highlight1"></span><span
+						class="bar1"></span>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">User Address</label>
+				   
+					<!-- Dont remove the name and value attribute-->
+				</div>
+				<div class="group1">
+					<input type="text" name="bloodGroup" aria-required="true" required><span class="highlight1"></span><span
+						class="bar1"></span>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">User Blood-Group</label>
+				   
+					<!-- Dont remove the name and value attribute-->
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<div id="myModal" class="modal fadeIn">
 		<div class="modal-content">
 			<div class="row">
@@ -203,7 +279,11 @@
 					<div id="sub1">
 						<div class="images">
 							<img src="../img/CoverPhoto.png" id="coverImg">
-							<img src="../img/ProfilePic.png" id="profileImg">
+							<% if (hospital.profilePic){%>
+								<a href="#"><img src="../uploads/<%=hospital.email%>/profilePic/<%=hospital.profilePic%>"  id="profileImg"></a>
+								<%}else{%>
+									<a href="#"><img src="../img/ProfilePic.png"  id="profileImg"></a>
+									<%}%>
 							<img src="../img/camera.png" id="Camera">
 						</div>
 						<div class="name-id">
@@ -295,8 +375,12 @@
 				</div>
 				 
 		<%if (path === '/hospital/patient') { %>
-			<%- include('../partials/profileContent'); %>
+			<%- include('../partials/HospitalProfilePatient'); %>
 		<% } %>
+		<%if (path === '/hospital/document') { %>
+			<%- include('../partials/diseaseContent'); %>
+		<% } %>
+
 	
 			</div>
 		</div>
@@ -335,7 +419,11 @@
 				<div id="sub1">
 					<div class="images">
 						<img src="../img/CoverPhoto.png" id="coverImg">
-						<img src="../img/ProfilePic.png" id="profileImg">
+						<% if (hospital.profilePic){%>
+							<a href="#"><img src="../uploads/<%=hospital.email%>/profilePic/<%=hospital.profilePic%>"  id="profileImg"></a>
+							<%}else{%>
+								<a href="#"><img src="../img/ProfilePic.png"  id="profileImg"></a>
+								<%}%>
 						<img src="../img/camera.png" id="Camera">
 					</div>
 					<div class="name-id">
@@ -433,13 +521,67 @@
 		<%}%>
        
 		<%if (path === '/hospital/patient') { %>
-			<%- include('../partials/profileContent'); %>
+			<%- include('../partials/HospitalProfilePatient'); %>
 		<% } %>
 		
 		
 	</div>
 </div>
 <%- include('../partials/footer'); %>
+
+<script>
+	function modalEdit(){
+var modal = document.getElementById("myModalEdit");
+var btn = document.getElementById("myBtnEdit");
+var span = document.getElementsByClassName("cancel-edit")[0];
+btn.onclick = function () {
+	modal.style.display = "block";
+}
+span.onclick = function () {
+	modal.style.display = "none";
+}
+window.onclick = function (event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+}
+var span = document.getElementsByClassName("save1-edit")[0];
+btn.onclick = function () {
+	modal.style.display = "block";
+}
+span.onclick = function () {
+	modal.style.display = "none";
+}
+window.onclick = function (event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+}
+} 
+</script>
+<script>
+	var modal = document.getElementById("myModal-dp-edit");
+	var btn = document.getElementById("Camera");
+	var span = document.getElementsByClassName("close-dp-edit")[0];
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+	  var span = document.getElementsByClassName("save-dp-edit")[0];
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+		modal.style.display = "none";
+	  }
+	} 
+	</script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
