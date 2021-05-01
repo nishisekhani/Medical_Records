@@ -76,9 +76,9 @@ app.listen(PORT, () => {
 })
 
 
-//  User = require('./models/User')
+// const  User = require('./models/User')
 //  const databasedlt= async()=>{
-//     const user = await User.find({email:"jainujjawal1999@gmail.com"})
+//     const user = await User.find({email:"debojyoti76@gmail.com"})
 //     user.forEach(async(data)=>{
 //          await User.findByIdAndDelete(data._id)
 //     })
@@ -89,7 +89,7 @@ app.listen(PORT, () => {
 
 //  const User= require('./models/Hospital')
 // const databasedlt= async()=>{
-//    const user = await User.find({email:"gauravbhattacharjee_ug@cse.nits.ac.in"})
+//    const user = await User.find({email:"debojyoti76@gmail.com"})
 //    user.forEach(async(data)=>{
 //         await User.findByIdAndDelete(data._id)
 //    })
