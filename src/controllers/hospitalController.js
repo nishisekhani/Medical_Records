@@ -51,6 +51,27 @@ module.exports.document_get=async(req,res)=>{
     }
 }
 
+module.exports.editDetails_post=async(req,res)=>{
+    try{
+    //console.log("details",req.hospital)
+     const hospital=req.hospital
+     hospital.adminName =req.body.adminName
+     hospital.adminEmail=req.body.adminEmail
+     hospital.adminAddress=req.body.adminAddress
+    await hospital.save()
+    console.log("user saved",hospital)
+    req.flash('success_msg','Details about the user has been saved')
+      
+
+    res.redirect('/hospital/profile')
+    }
+    catch(e){
+        console.log("error",e)
+        req.flash('error_msg','error while editing profile details')
+        res.redirect('/hospital/profile')
+    }
+}
+
 
 module.exports.patientDiseases_get=async(req,res)=>{
     try{
