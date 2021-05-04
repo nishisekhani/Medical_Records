@@ -103,6 +103,11 @@ body {
     bottom: 0;
     left: 120px;
 }
+#CameraMobile {
+    position: absolute;
+    bottom: 0;
+    left: 120px;
+}
 .name-id {
     padding-left: 5%;
 }

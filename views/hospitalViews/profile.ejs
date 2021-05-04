@@ -72,41 +72,28 @@
 				<div class="group1">
 					<input type="text" name="adminName" aria-required="true" required><span class="highlight1"></span><span
 						class="bar1"></span>
-					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Nominee
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Admin Name
 						Name</label>
-					<span><button class="save1-edit" formaction="#" >SAVE</button></span>
+					<span><button class="save1-edit" formaction="profile/editDetails" >SAVE</button></span>
 					<!-- Dont remove the name and value attribute-->
 				</div>
 				<div class="group1-edit">
-					<input type="text" name="nomineeEmail" aria-required="true" required><span class="highlight1"></span><span
+					<input type="text" name="adminEmail" aria-required="true" required><span class="highlight1"></span><span
 						class="bar1"></span>
-					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Nominee
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Admin Email
 						Email</label>
 					
 					<!-- Dont remove the name and value attribute-->
 				</div>
 				<div class="group1">
-					<input type="text" name="nomineePhn" aria-required="true" required><span class="highlight1"></span><span
+					<input type="text" name="adminAddress" aria-required="true" required><span class="highlight1"></span><span
 						class="bar1"></span>
-					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Nominee
-						Phone Number</label>
+					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">Admin
+						Address</label>
 				   
 					<!-- Dont remove the name and value attribute-->
 				</div>
-				<div class="group1">
-					<input type="text" name="address" aria-required="true" required><span class="highlight1"></span><span
-						class="bar1"></span>
-					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">User Address</label>
-				   
-					<!-- Dont remove the name and value attribute-->
-				</div>
-				<div class="group1">
-					<input type="text" name="bloodGroup" aria-required="true" required><span class="highlight1"></span><span
-						class="bar1"></span>
-					<label for="name" style="margin-left: 8px; margin-top: -20px; padding-bottom: 200px;">User Blood-Group</label>
-				   
-					<!-- Dont remove the name and value attribute-->
-				</div>
+				
 			</form>
 		</div>
 	</div>
@@ -280,7 +267,7 @@
 						<div class="images">
 							<img src="../img/CoverPhoto.png" id="coverImg">
 							<% if (hospital.profilePic){%>
-								<a href="#"><img src="../uploads/<%=hospital.email%>/profilePic/<%=hospital.profilePic%>"  id="profileImg"></a>
+								<a href="#"><img src="../uploads/<%=hospital.email%>/hospital/profilePic/<%=hospital.profilePic%>"  id="profileImg"></a>
 								<%}else{%>
 									<a href="#"><img src="../img/ProfilePic.png"  id="profileImg"></a>
 									<%}%>
@@ -420,11 +407,11 @@
 					<div class="images">
 						<img src="../img/CoverPhoto.png" id="coverImg">
 						<% if (hospital.profilePic){%>
-							<a href="#"><img src="../uploads/<%=hospital.email%>/profilePic/<%=hospital.profilePic%>"  id="profileImg"></a>
+							<a href="#"><img src="../uploads/<%=hospital.email%>/hospital/profilePic/<%=hospital.profilePic%>"  id="profileImg"></a>
 							<%}else{%>
 								<a href="#"><img src="../img/ProfilePic.png"  id="profileImg"></a>
 								<%}%>
-						<img src="../img/camera.png" id="Camera">
+						<img src="../img/camera.png" id="CameraMobile">
 					</div>
 					<div class="name-id">
 						<h5 id="name"><%= hospital.hospitalName %></h5>
@@ -519,6 +506,9 @@
 			</div>
 		</div>
 		<%}%>
+		<%if (path === '/hospital/document') { %>
+			<%- include('../partials/diseaseContent'); %>
+		<% } %>
        
 		<%if (path === '/hospital/patient') { %>
 			<%- include('../partials/HospitalProfilePatient'); %>
@@ -582,6 +572,29 @@ window.onclick = function (event) {
 	  }
 	} 
 	</script>
+	<script>
+		var modal = document.getElementById("myModal-dp-edit");
+		var btn = document.getElementById("CameraMobile");
+		var span = document.getElementsByClassName("close-dp-edit")[0];
+		btn.onclick = function() {
+		  modal.style.display = "block";
+		}
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+		  var span = document.getElementsByClassName("save-dp-edit")[0];
+		btn.onclick = function() {
+		  modal.style.display = "block";
+		}
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+			modal.style.display = "none";
+		  }
+		} 
+		</script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

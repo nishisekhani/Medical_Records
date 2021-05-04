@@ -22,6 +22,14 @@ const hospitalSchema = mongoose.Schema(
             type: String,
             trim: true
         },
+        adminEmail: {
+            type: String,
+            trim: true
+        },
+        adminAddress: {
+            type: String,
+            trim: true
+        },
         active: {
             type: Boolean,
             default: true,// to be set to false after testing
