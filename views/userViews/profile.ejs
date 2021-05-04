@@ -57,7 +57,11 @@
 			<div class="modal-content-edit">
 				<div class="row">
 					<div class="content-top-edit ">
-						<a href="#" class="img-rounded"><img src="../img/ProfilePic.png" id="profileImg1"></a>
+						<% if (user.profilePic){%>
+							<a href="#"><img src="../uploads/<%=user.email%>/profilePic/<%=user.profilePic%>"  id="profileImg" style="width:10px"></a>
+							<%}else{%>
+								<a href="#"><img src="../img/ProfilePic.png"  id="profileImg"></a>
+							<%}%>
 						<span><button type="button" class="cancel-edit fadeOut"
 								data-dismiss="modal">CANCEL</button></span>
 						<h4>Profile details</h4>
@@ -276,7 +280,11 @@
 							<div id="sub1">
 								<div class="images">
 									<img src="../img/CoverPhoto.png" id="coverImg">
-									<img src="../img/ProfilePic.png" id="profileImg">
+									<% if (user.profilePic){%>
+										<a href="#"><img src="../uploads/<%=user.email%>/profilePic/<%=user.profilePic%>"  id="profileImg"></a>
+										<%}else{%>
+											<a href="#"><img src="../img/ProfilePic.png"  id="profileImg"></a>
+											<%}%>
 									<img src="../img/camera.png" id="Camera">
 								</div>
 								<div class="name-id">
@@ -435,7 +443,11 @@
 								<div id="sub1">
 									<div class="images">
 										<img src="../img/CoverPhoto.png" id="coverImg">
-										<img src="../img/ProfilePic.png" id="profileImg">
+										<% if (user.profilePic){%>
+											<a href="#"><img src="../uploads/<%=user.email%>/profilePic/<%=user.profilePic%>"  id="profileImg"></a>
+											<%}else{%>
+												<a href="#"><img src="../img/ProfilePic.png"  id="profileImg"></a>
+												<%}%>
 										<img src="../img/camera.png" id="Camera">
 									</div>
 									<div class="name-id">
