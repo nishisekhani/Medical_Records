@@ -71,6 +71,8 @@ router.post('/login', hospitalController.login_post)
 router.get('/verifyRelation/:id',hospitalController.relationVerify_get)
 router.get('/verifyNominee/:id',hospitalController.nomineeVerify_get) 
 
+router.post('/profile/editDetails',requireAuth, hospitalController.editDetails_post)
+
 router.get('/profile', requireAuth, hospitalController.profile_get)
 
 router.get('/patient',requireAuth,hospitalController.patient_get)
