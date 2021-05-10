@@ -21,9 +21,6 @@ body {
 #button1 {
     border-color: blue;
 }
-ul {
-    margin-left: 6vw;
-}
 ul li {
     color: black;
     font-family: Product Sans;
@@ -54,7 +51,12 @@ ul li {
     position: relative;
     right: 8vw;
 }
-
+.navbar-nav {
+    /* -ms-flex-direction: row;
+    flex-direction: row; */
+    width: 100%;
+    justify-content: space-evenly;
+}
 @media (max-width: 412px) {
     ul li {
         margin-left: -3.5vw;

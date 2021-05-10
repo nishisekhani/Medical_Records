@@ -526,14 +526,19 @@ input:focus ~ .highlight1 {
 }
 
 /* Modal Content/Box */
-.modal-content-dp-edit{
+.modal-content-dp-edit {
   background-color: #292727;
-  color:white;
-  margin: 15% auto; /* 15% from the top and centered */
+  color: white;
+  max-width: 98%;
+  /* margin: 15% auto; */
   padding: 20px;
   border: 1px solid #888;
-  width: 40%; /* Could be more or less, depending on screen size */
-  height:30%;
+  width: min-content;
+  height: 30%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* The Close Button */
@@ -564,99 +569,3 @@ background: #292727 !important;
 border:none !important;
 color:white !important;
 }
-@media only screen and (max-width:450px){
-  #patientId:hover #patientImage{
-      margin-right:30px;
-  }
-  #patientList li{
-      /* position:relative;
-     right:10px; */
-     margin-left:15px;
-      width:100%;
-  }
-  #name{
-      margin-top:10px;
-  }
-  #patientDetails{
-      margin-top:20px;
-      padding-bottom:10px;
-  }
-  #pSec3{
-      margin-top:25%;
-  }
-  #pSec1{
-      margin-top:30%;
-  }
-}
-/*Mobile view responsiveness modified*/
-@media only screen and (min-width:451px) and (max-width:540px){
-  #name{
-      margin-top:10px;
-  }
- #pSec3{
-     margin-top:15%;
- }
- #pSec1{
-  margin-top:20%;
-}
-  #patientDetails{
-      margin-top:10px;
-      padding-bottom:10px;
-  }
-  #Camera {
-      top: 44.5%;
-      left: 20%;
-  }
-}
-@media only screen and (min-width:319px) and (max-width:340px){
-  #name{
-      margin-top:20px;
-  }
- #pSec3{
-     margin-top:80px;
- }
-  #patientDetails{
-      margin-top:10px;
-      padding-bottom:10px;
-  }
-}
-@media only screen and (min-width:365px) and (max-width:380px){
-  #pSec3{
-      margin-top:15%;
-  }
-  #pSec1{
-      margin-top:30%;
-  }
-  #Camera {
-      top: 43.5%;
-      left: 34%;
-  }
-}
-@media (min-width:320px) and (max-width: 365px){
-#Camera {
-  top: 43.5%;
-  left: 34%;
-}
-#pSec3{
-  margin-top:25%;
-}
-#pSec1{
-   margin-top:40%;
-}
-}
-@media (max-width: 320px){
-  #Camera {
-      top: 43.5%;
-      left: 40%;
-  }
-  #patientDetails{
-      margin-top:10px;
-      padding-bottom:10px;
-  }
-#pSec3{
-  margin-top:30%;
-}
-#pSec1{
-   margin-top:45%;
-}
-  }    
