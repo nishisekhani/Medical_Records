@@ -53,7 +53,7 @@ body {
     border-radius: 16px !important;
     padding: 5% !important;
 }
-.active-list a {
+.active-list a:first-child {
     color: white !important;
 }
 .active-list .Icons {

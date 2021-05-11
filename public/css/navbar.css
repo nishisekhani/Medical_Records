@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color:#F1F1F1;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 #logo {
@@ -20,6 +20,9 @@ body {
 }
 #button1 {
     border-color: blue;
+}
+ul {
+    margin-left: 6vw;
 }
 ul li {
     color: black;
@@ -51,12 +54,7 @@ ul li {
     position: relative;
     right: 8vw;
 }
-.navbar-nav {
-    /* -ms-flex-direction: row;
-    flex-direction: row; */
-    width: 100%;
-    justify-content: space-evenly;
-}
+
 @media (max-width: 412px) {
     ul li {
         margin-left: -3.5vw;

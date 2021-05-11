@@ -192,7 +192,7 @@
 								</a>
 								<img src="../img/disease.png" class="Icons">
 								<div id="myDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-									<a id="myBtn" class="dropdown-item" onclick=openModal()>Add New</a>
+									<a id="myBtn" class="dropdown-item" onclick=openModal() style="color: #9593a0 !important;">Add New</a>
 									<% for(var d of user.disease) { %>
 										<a class="dropdown-item" href="/user/disease?id=<%= d._id %>"><span
 												class="dropAnchor">
@@ -404,7 +404,7 @@
 									<div id="myDropdownMobile" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 										<!-- <a id="myBtn" class="dropdown-item" onclick=openModal()>Add New</a> -->
 										<a id="myBtn" class="dropdown-item" data-toggle="modal" onclick=openModal()
-											data-target="#myModal">Add New</a>
+											data-target="#myModal" style="color: #9593a0 !important;">Add New</a>
 										<% for(var d of user.disease) { %>
 											<a class="dropdown-item" href="/user/disease?id=<%= d._id %>"><span
 													class="dropAnchor">
